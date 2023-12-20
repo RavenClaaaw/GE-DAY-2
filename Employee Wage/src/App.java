@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        System.out.println("Welcome To Comparision Computation: ");
+        System.out.println("Welcome To Comparison Computation: ");
         
         Line a = new Line();
         Line b = new Line();
@@ -12,6 +12,8 @@ public class App {
         } else{
             System.out.println("NOT EQUAL LINES");
         }
+
+        Compare.compare(a, b);
     }
 }
 
@@ -54,7 +56,16 @@ class Line{
 }
 
 class Compare {
-    static boolean equals(Line A, Line B) {
+    static boolean equals(Line A, Line B){
         return (A.start.x == B.start.x && A.start.y == B.start.y && A.end.x == B.end.x && A.end.y == B.end.y);
+    }
+
+    static void compare(Line A, Line B){
+        if(A.getLength() == B.getLength()){
+            System.out.println("EQUAL LENGTH");
+        } else{
+            String solution = (A.getLength() > B.getLength()) ? ("Line - 1 > Line - 2") : ("Line - 1 < Line - 2");
+            System.out.println(solution);
+        }
     }
 }
