@@ -4,8 +4,15 @@ public class App {
     public static void main(String[] args) throws Exception {
         System.out.println("Welcome To Comparision Computation: ");
         
-    }
+        Line a = new Line();
+        Line b = new Line();
 
+        if(Compare.equals(a, b)){
+            System.out.println("EQUAL LINES");
+        } else{
+            System.out.println("NOT EQUAL LINES");
+        }
+    }
 }
 
 class Point{
@@ -38,10 +45,16 @@ class Line{
         System.out.println("ENTER Y-2: ");
         end.y = scanner.nextDouble();
 
-        scanner.close();
+        // scanner.close();
     }
 
     double getLength(){
         return Math.sqrt(Math.pow((start.x - end.x), 2) + Math.pow((start.y - end.y), 2));
+    }
+}
+
+class Compare {
+    static boolean equals(Line A, Line B) {
+        return (A.start.x == B.start.x && A.start.y == B.start.y && A.end.x == B.end.x && A.end.y == B.end.y);
     }
 }
